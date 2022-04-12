@@ -15,6 +15,7 @@ public class Studentapi {
     public void addStudent(@RequestBody Student student) {
         students.add(student);
     }
+
     @RequestMapping(method = RequestMethod.GET, value = "/student")
     public List<Student> getStudents(){
         return students;

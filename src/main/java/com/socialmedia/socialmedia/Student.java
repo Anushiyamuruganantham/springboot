@@ -4,7 +4,7 @@ public class Student {
     private String id;
     private String name;
     private String standard;
-    Student(){}
+   public Student(){}
 
     public String getId() {
         return id;
