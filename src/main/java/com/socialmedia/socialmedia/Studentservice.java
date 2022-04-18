@@ -1,18 +1,32 @@
 package com.socialmedia.socialmedia;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class Studentservice {
+public class StudentService {
+
     List<Student> students = new ArrayList<Student>();
+
     public void addStudent(Student student){
-        students.add(student);
+      students.add(student);}
+
+    public List<Customstudent>addStudents(String[] student_ids) {
+        List<Customstudent> students1 = new ArrayList<Customstudent>();
+            for (Student student : students) {
+                for (int i = 0; i < student_ids.length; i++) {
+                    if (student.getId().equals(student_ids[i])) {
+                        Customstudent c=new Customstudent(student.getId(),student.getName());
+                        students1.add(c);
+                    }
+                }
+            }
+            return students1;
+
     }
+
     public List<Student> getStudents(){
         return students;
     }

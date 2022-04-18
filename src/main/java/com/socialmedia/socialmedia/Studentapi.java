@@ -6,16 +6,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.*;
 
 @RestController
 public class Studentapi {
     @Autowired
-            private Studentservice studentService;
+            private StudentService studentService;
     @RequestMapping(method = RequestMethod.POST, value = "/student")
     public void addStudent(@RequestBody Student student) {
         studentService.addStudent(student);
+    }
+
+    @RequestMapping(method = RequestMethod.POST,value="/student_ids")
+    public List <Customstudent> addStudents(@RequestBody StudentIdRequest student_ids){
+        return studentService.addStudents(student_ids.getIds());
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/student")
