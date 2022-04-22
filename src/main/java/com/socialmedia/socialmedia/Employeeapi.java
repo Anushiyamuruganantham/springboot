@@ -10,8 +10,8 @@ public class Employeeapi {
     @Autowired
     private EmployeeService employeeService;
 
-  //  @PostMapping(value = "/employee")
-    @RequestMapping(method = RequestMethod.POST, value = "/EMPLOYEE")
+   @PostMapping(value = "/employee")
+   // @RequestMapping(method = RequestMethod.POST, value = "/EMPLOYEE")
     public void addmethod (@RequestBody Employee employee){
             employeeService.addmethod(employee);
         }
